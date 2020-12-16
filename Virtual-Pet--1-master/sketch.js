@@ -1,5 +1,7 @@
 var dog
 var dogImg
+var dog1
+var dog2
 var database
 var foodS
 var foodStock
@@ -12,9 +14,9 @@ function preload()
 
 function setup() {
 	createCanvas(500, 500);
-  dogImg=createSprite();
-  dogImg.addImage(dogImg);
-  dog=createSprite();
+  dog1=createSprite();
+  dog1.addImage(dogImg);
+  dog2=createSprite();
   database=firebase.database();
   foodStock=database.ref('food');
   foodStock.on("value",readStock);
@@ -22,7 +24,7 @@ function setup() {
 
 
 function draw() {  
-  background(green);
+  background("green");
 
   if(keyWentDown(UP_ARROW)){
     writeStock(foodS);
@@ -30,6 +32,7 @@ function draw() {
   }
   drawSprites();
   text("Food remaining");
+
 }
 
 function readStock(data){
